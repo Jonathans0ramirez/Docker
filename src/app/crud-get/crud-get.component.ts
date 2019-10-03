@@ -8,6 +8,7 @@ import { BusinessService } from '../business.service';
 })
 export class CrudGetComponent implements OnInit {
 
+  displayedColumns: string[] = ['Person Name', 'Business Name', 'Business GST Number'];
   businesses: Array<any>;
 
   constructor(
