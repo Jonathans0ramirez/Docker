@@ -18,7 +18,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use('/business', businessRoute);
-app.use('/student', studentRoute); // Ruta de acceso a la API de estudiantes
+app.use('/student', studentRoute);
 
 const port = process.env.PORT || 4000;
 
