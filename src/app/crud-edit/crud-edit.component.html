@@ -37,10 +37,10 @@
               </div>
           </div>
           <div class="form-group">
-              <button (click)="editBusiness(person_name.value, business_name.value, business_gst_number.value, business._id)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">
+              <button mat-menu-item (click)="editBusiness(person_name.value, business_name.value, business_gst_number.value, business._id)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">
                   Edit Business
               </button>
-              <button (click)="delete(business._id)" class="btn btn-primary">
+              <button mat-menu-item (click)="delete(business._id)" class="btn btn-primary">
                   Delete Business                    
               </button>
           </div>
