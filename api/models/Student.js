@@ -6,7 +6,7 @@ let Student = new Schema({
     name: {
     type: String
     },
-    surename: {
+    last_name: {
     type: String
     },
     level: {

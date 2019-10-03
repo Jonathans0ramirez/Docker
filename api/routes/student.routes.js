@@ -5,7 +5,7 @@ const studentRoutes = express.Router();
 // Require Student model in our routes module
 let Student = require('../models/Student');
 
-// Crear un registro
+// Defined store route
 studentRoutes.route('/add').post(function (req, res) {
     let student = new Student(req.body);
     student.save()
@@ -17,7 +17,7 @@ studentRoutes.route('/add').post(function (req, res) {
         });
 });
 
-// Entregar colección
+// Defined get data(index or listing) route
 studentRoutes.route('/').get(function (req, res) {
     Student.find(function (err, students){
         if(err){
@@ -29,7 +29,7 @@ studentRoutes.route('/').get(function (req, res) {
     });
 });
 
-// Entregar un registro
+// Defined get specified data(index or listing) route
 studentRoutes.route('/:id').get(function (req, res) {
     let id = req.params.id;
     Student.findById(id, function (err, student){
@@ -37,7 +37,7 @@ studentRoutes.route('/:id').get(function (req, res) {
     });
 });
 
-// Modificar un registro
+// Defined edit route
 studentRoutes.route('/update/:id').post(function (req, res, next) {
     Student.findById(req.params.id, function (err,  student) {
         if (!student)
@@ -58,7 +58,7 @@ studentRoutes.route('/update/:id').post(function (req, res, next) {
     });
 });
 
-// Eliminar un registro
+// Defined delete | remove | destroy route
 studentRoutes.route('/delete/:id').get(function (req, res) {
     Student.findByIdAndRemove({_id: req.params.id}, function(err, student){
         if (err) res.json(err);
