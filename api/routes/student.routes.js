@@ -66,4 +66,17 @@ studentRoutes.route('/delete/:id').get(function (req, res) {
     });
 });
 
+//
+studentRoutes.route('/average/:course_code').get(function (req, res) {
+    // Student.find( { course_code: req.params.course_code }, function(err, student){
+    //     if (err) res.json(err);
+    //     else res.json(student);
+    // })
+
+    Student.aggregate([{$match: { course_code: Number(req.params.course_code) }}, {$group: { _id: "$_id"}}], function(err, student){
+        if (err) res.json(err);
+        else res.json(student);
+    })
+});
+
 module.exports = studentRoutes;

@@ -9,7 +9,7 @@ let Student = new Schema({
     type: String
     },
     course_code: {
-    type: Number
+    type: String
     },
     average_grade: {
     type: Number
