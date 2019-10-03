@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { CrudGetComponent } from './crud-get/crud-get.component';
 import { CrudEditComponent } from './crud-edit/crud-edit.component';
 
 import { BusinessService } from './business.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { BusinessService } from './business.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SlimLoadingBarModule
+    SlimLoadingBarModule,
+    MatToolbarModule, 
+    BrowserAnimationsModule
   ],
   providers: [BusinessService],
   bootstrap: [AppComponent]
