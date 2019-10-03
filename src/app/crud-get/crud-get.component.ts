@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessService } from '../business.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { BusinessService } from '../business.service';
 })
 export class CrudGetComponent implements OnInit {
 
-  displayedColumns: string[] = ['Person Name', 'Business Name', 'Business GST Number'];
+  displayedColumns: string[] = ['person_name', 'business_name', 'business_gst_number', 'business_actions'];
   businesses: Array<any>;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private businessService: BusinessService
   ) { }
 
@@ -21,4 +24,8 @@ export class CrudGetComponent implements OnInit {
     });
   }
 
+  delete(id) {
+    let res = this.businessService.delete(id);
+    this.ngOnInit();
+  }
 }

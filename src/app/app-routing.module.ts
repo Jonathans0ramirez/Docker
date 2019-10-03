@@ -10,16 +10,12 @@ const routes: Routes = [
     component: CrudGetComponent
   },
   {
-    path: 'business/create',
+    path: 'create',
     component: CrudAddComponent
   },
   {
-    path: 'business/edit/:id',
+    path: 'edit/:id',
     component: CrudEditComponent
-  },
-  {
-    path: 'business',
-    component: CrudGetComponent
   },
 ];
 

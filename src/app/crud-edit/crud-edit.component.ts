@@ -56,13 +56,8 @@ export class CrudEditComponent implements OnInit, OnDestroy {
     this.gotoList();
   }
 
-  delete(id) {
-    let res = this.businessService.delete(id);
-    this.gotoList();
-  }
-
   gotoList() {
-    this.router.navigate(['/business']);
+    this.router.navigate(['/']);
   }
 
 }

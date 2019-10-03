@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class BusinessService {
 
   uri = 'http://localhost:4000/business';
-  //uri = 'http://192.168.99.100:4000/business';
 
   constructor(
     private http: HttpClient
