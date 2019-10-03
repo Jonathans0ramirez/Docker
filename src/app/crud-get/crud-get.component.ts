@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BusinessService } from '../business.service';
 
@@ -15,6 +16,7 @@ export class CrudGetComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
     private businessService: BusinessService
   ) { }
 
@@ -25,7 +27,11 @@ export class CrudGetComponent implements OnInit {
   }
 
   delete(id) {
-    let res = this.businessService.delete(id);
+    let res = this.businessService.delete(id).subscribe(result => {
+      this._snackBar.open('Success: Business Deleted', 'OK', {
+        duration: 5000,
+    });
     this.ngOnInit();
+  })
   }
 }

@@ -1,16 +1,16 @@
 <div class="example-container">
     <form class="example-container" [formGroup]="angForm" novalidate>
         <mat-form-field [hideRequiredMarker]="false" [floatLabel]="auto">
-            <input matInput placeholder="Person Name" class="form-control" formControlName="person_name" #person_name
-                required>
+            <input matInput placeholder="Person Name" class="form-control" formControlName="person_name"
+                [(ngModel)]="business.person_name" #person_name required>
         </mat-form-field>
         <mat-form-field [hideRequiredMarker]="false" [floatLabel]="auto">
             <input matInput placeholder="Business Name" class="form-control" formControlName="business_name"
-                #business_name required>
+                [(ngModel)]="business.business_name" #business_name required>
         </mat-form-field>
         <mat-form-field [hideRequiredMarker]="dalse" [floatLabel]="auto">
             <input matInput placeholder="Business GST Number" class="form-control" formControlName="business_gst_number"
-                #business_gst_number required>
+                [(ngModel)]="business.business_gst_number" #business_gst_number required>
         </mat-form-field>
         <div class="form-group">
             <button mat-button

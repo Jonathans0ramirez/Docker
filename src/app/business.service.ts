@@ -20,8 +20,7 @@ export class BusinessService {
       business_gst_number: business_gst_number
     };
     console.log(obj);
-    this.http.post(`${this.uri}/add`, obj)
-    .subscribe(res => console.log('Done'));
+    return this.http.post(`${this.uri}/add`, obj)
     }
 
   getAllBusiness(): Observable<any>{
@@ -38,13 +37,11 @@ export class BusinessService {
       business_name: business_name,
       business_gst_number: business_gst_number
     };
-    this.http.post(`${this.uri}/update/${id}`, obj)
-      .subscribe(res => console.log('Done'));
+    return this.http.post(`${this.uri}/update/${id}`, obj)
   }
 
   delete(id: string){
-    this.http.get(`${this.uri}/delete/${id}`)
-      .subscribe(res => console.log('Done'));
+    return this.http.get(`${this.uri}/delete/${id}`)
   }
 
 }

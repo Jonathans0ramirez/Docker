@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BusinessService } from '../business.service';
 
@@ -15,6 +16,7 @@ export class CrudAddComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
     private fb: FormBuilder,
     private bs: BusinessService
   ) {
@@ -30,8 +32,12 @@ export class CrudAddComponent implements OnInit {
   }
 
   addBusiness(person_name, business_name, business_gst_number) {
-    this.bs.addBusiness(person_name, business_name, business_gst_number);
+    this.bs.addBusiness(person_name, business_name, business_gst_number).subscribe(result => {
+      this._snackBar.open('Success: Business Created', 'OK', {
+        duration: 5000,
+    });
     this.gotoList();
+    })
   }
 
   gotoList() {

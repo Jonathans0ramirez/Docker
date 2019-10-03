@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatMenuModule, MatIconModule, MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatMenuModule, MatIconModule, MatButtonModule, MatTableModule, MatFormFieldModule, MatInputModule, MatSnackBarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { BusinessService } from '../business.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
@@ -18,6 +19,7 @@ export class CrudEditComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
     private businessService: BusinessService,
     private formBuilder: FormBuilder,
   ) { 
@@ -52,8 +54,12 @@ export class CrudEditComponent implements OnInit, OnDestroy {
   }
 
   editBusiness(person_name, business_name, business_gst_number, id) {
-    this.businessService.editBusiness(person_name, business_name, business_gst_number, id);
+    this.businessService.editBusiness(person_name, business_name, business_gst_number, id).subscribe(result => {
+      this._snackBar.open('Success: Business Edited', 'OK', {
+        duration: 5000,
+    });
     this.gotoList();
+    })
   }
 
   gotoList() {
